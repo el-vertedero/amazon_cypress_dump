@@ -1,0 +1,78 @@
+on post-fs
+    # RESET_N
+    write /sys/class/gpio/export "457"
+    chown system system /sys/class/gpio/gpio457/direction
+    chmod 0660 /sys/class/gpio/gpio457/direction
+    chown system system /sys/class/gpio/gpio457/value
+    chmod 0660 /sys/class/gpio/gpio457/value
+    write /sys/class/gpio/gpio457/direction "out"
+
+    # BOOTLOADER
+    write /sys/class/gpio/export "505"
+    chown system system /sys/class/gpio/gpio505/direction
+    chmod 0660 /sys/class/gpio/gpio505/direction
+    chown system system /sys/class/gpio/gpio505/value
+    chmod 0660 /sys/class/gpio/gpio505/value
+    write /sys/class/gpio/gpio505/direction "out"
+
+    # ZB_SWITCH_PIN (EVT+ ZB control toggle)
+    write /sys/class/gpio/export "473"
+    chown system system /sys/class/gpio/gpio473/direction
+    chmod 0660 /sys/class/gpio/gpio473/direction
+    chown system system /sys/class/gpio/gpio473/value
+    chmod 0660 /sys/class/gpio/gpio473/value
+    write /sys/class/gpio/gpio473/direction "out"
+
+    # ZB_INT_HVT (SPI Interrupt)
+    write /sys/class/gpio/export "456"
+    chown system system /sys/class/gpio/gpio456/direction
+    chmod 0660 /sys/class/gpio/gpio456/direction
+    chown system system /sys/class/gpio/gpio456/edge
+    chmod 0660 /sys/class/gpio/gpio456/edge
+    chown system system /sys/class/gpio/gpio456/value
+    chmod 0660 /sys/class/gpio/gpio456/value
+    write /sys/class/gpio/gpio456/direction "in"
+
+    # ZB_INT_EVT (SPI Interrupt)
+    write /sys/class/gpio/export "511"
+    chown system system /sys/class/gpio/gpio511/direction
+    chmod 0660 /sys/class/gpio/gpio511/direction
+    chown system system /sys/class/gpio/gpio511/edge
+    chmod 0660 /sys/class/gpio/gpio511/edge
+    chown system system /sys/class/gpio/gpio511/value
+    chmod 0660 /sys/class/gpio/gpio511/value
+    write /sys/class/gpio/gpio511/direction "in"
+
+    #spidev node for zigbee
+    chown system system /dev/spidev4.0
+    chown system system /dev/spidev5.0
+    chmod 0660 /dev/spidev4.0
+    chmod 0660 /dev/spidev5.0
+
+    export EXTMAC_TTY /data/vendor/zigbee/spi-hdlc-mux1
+    export ENABLE_HDLC 1
+
+on post-fs-data
+    mkdir /data/vendor/zigbee 0770 system system
+    chown system system /vendor/dsr/zigbee
+    chown system system /vendor/dsr/zigbee/rfs_file_path_config
+    chown system system /vendor/dsr/zigbee/mntfs_file_path_config
+    chown system system /vendor/dsr/zigbee/ramfs_file_path_config
+
+
+#service spi_hdlc_mux_adapter /vendor/bin/spi_hdlc_mux_adapter --verbose=9 \
+service spi_hdlc_mux_adapter /vendor/bin/spi_hdlc_mux_adapter -v \
+        --spi-mode=3 --no-spinel-nli1 \
+        --spi-speed=2000000 \
+        --spi-reset-delay=10 \
+        --spi-cs-delay=1000 \
+        --gpio-res=/sys/class/gpio/gpio457 \
+        --gpio-int=/sys/class/gpio/cypressint \
+        --pty-symlink-path=/data/vendor/zigbee \
+        /dev/cypressspidev
+    class hal
+    user system
+    group system net_admin
+    onrestart setprop vendor.zigbee.zb_mux_initialized false
+    disabled
+

@@ -1,0 +1,6 @@
+on post-fs
+    insmod /vendor/lib/modules/halo-core.ko
+    insmod /vendor/lib/modules/halo-user.ko
+    wait /dev/halo-user 5
+    chown system system /dev/halo-user
+    chmod 660 /dev/halo-user

@@ -1,0 +1,22 @@
+# This rc file is used to bypass halo dfu process used in Nordic-based gateways
+
+# Note: nordiccomm.sh which uses halo_cli to communicate with mcu, is netural.
+service vendor.halo_mcu_comm /vendor/bin/nordiccomm.sh
+   oneshot
+   disabled
+   user root
+   group system inet
+   class main
+
+on property:init.svc.vendor.halo-spineld=running
+   wait /dev/halo0 60
+   chown system system /dev/halo0
+   chmod 0660 /dev/halo0
+   start vendor.halo_mcu_comm
+
+on property:init.svc.vendor.halo_mcu_comm=stopped && property:vendor.halo.comm=ready
+   setprop vendor.halo.ready true
+
+on property:init.svc.vendor.halo_mcu_comm=stopped && property:vendor.halo.comm=failed
+   setprop vendor.halo.ready true
+

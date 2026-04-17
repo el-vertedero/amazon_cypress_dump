@@ -1,0 +1,52 @@
+/*
+ * pq_config.json
+ *
+ * Copyright (c) 2023 Amazon.com, Inc. or its affiliates. All Rights Reserved
+ *
+ * PROPRIETARY/CONFIDENTIAL
+ *
+ * Use is subject to license terms.
+ */
+
+/*
+ * Refer to wiki link for config instructions:
+ * https://wiki.labcollab.net/confluence/display/SMPPLAT/Per+Device+PictureQuality+Separate+Configurations
+ *
+ */
+
+{
+    "Aad": {
+        "ciexLowerLimit": 0.30033,
+        "cieyLowerLimit": 0.31026,
+        "cctLowerLimit": 7500.0,
+        "ciexUpperLimit": 0.45986,
+        "cieyUpperLimit": 0.41060,
+        "cctUpperLimit": 2700.0,
+        "ciexReference": 0.3134,
+        "cieyReference": 0.3226,
+        "ciezReference": 0.363,
+        "alsTime": 700.0,
+        "frameRate": 16.0,
+        "totalTransitionTime": 4.0,
+        "enableBlending": 1.0,
+        "largeThreshold": 800.0,
+        "stableThreshold": 200.0,
+        "stopThreshold": 45.0,
+        "transitionMode": 0.0,
+        "interpolationCctSteps": 10.0,
+        "interpolationTotalSteps": 200.0,
+        "strength": 1.0
+    },
+    "Masc": {
+        "maxPwm": 255.0,
+        "maxIntercept": 8.0,
+        "greyThreshold": 50.0,
+        "luxThreshold": 50.0,
+        "luxGamma": 1.9,
+        "backlightThreshold": 45.0,
+        "backlightGamma": 0.05,
+        "alphaLux": 0.005,
+        "alphaBacklight": 1.0,
+        "alphaVideo": 0.005
+    }
+}

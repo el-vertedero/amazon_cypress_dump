@@ -1,0 +1,7 @@
+service bluetooth_chip_reset /vendor/bin/bluetooth_chip_reset.sh
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:bluetooth_chip_reset:s0
+

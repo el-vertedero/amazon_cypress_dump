@@ -1,0 +1,13 @@
+#Messaging bridge service
+service vendor.halo-msg-bridge /vendor/bin/core-messaging-bridge
+   user system
+   group root system inet net_admin shell log
+   disabled
+
+#Start messaging bridge
+on property:init.svc.vendor.halo-hub-core=running
+   write /mnt/halo/run/mfg/gatewayid ${ro.serialno}
+   chown system system /mnt/halo/run/mfg/gatewayid
+   chmod 0660 /mnt/halo/run/mfg/gatewayid
+   start vendor.halo-msg-bridge
+

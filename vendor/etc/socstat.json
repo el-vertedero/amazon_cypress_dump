@@ -1,0 +1,211 @@
+{
+  "model_name": "Hoya",
+  "devfreq_devices": [
+    {
+      "name": "GPU",
+      "path": "/sys/class/devfreq/fe400000.bifrost"
+    }
+  ],
+  "hwmon_sensors": [
+    {
+      "name": "Amb Temp",
+      "type": "temp",
+      "path": "/sys/class/hwmon/hwmon0/temp1_input"
+    },
+    {
+      "name": "SoC Temp",
+      "type": "temp",
+      "path": "/sys/class/hwmon/hwmon2/temp1_input"
+    }
+  ],
+  "cycles_to_bytes": 16,
+  "pmu_devices": [
+    {
+      "path": "/sys/devices/aml_ddrc0",
+      "display_name": "DMC 0",
+      "pmu_events": [
+        {
+          "event": "chan_all_read_write_cycles",
+          "axi_id": 0,
+          "name": "Total",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_1_read_write_cycles",
+          "axi_id": 1,
+          "name": "Cortex-lit",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_2_read_write_cycles",
+          "axi_id": 2,
+          "name": "Cortex-big",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_3_read_write_cycles",
+          "axi_id": 3,
+          "name": "3D GPU",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_4_read_write_cycles",
+          "axi_id": 68,
+          "name": "DSP A",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_5_read_write_cycles",
+          "axi_id": 53,
+          "name": "Video_Dec_1",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_6_read_write_cycles",
+          "axi_id": 51,
+          "name": "Video_Dec_2",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_7_read_write_cycles",
+          "axi_id": 80,
+          "name": "VPU0",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_8_read_write_cycles",
+          "axi_id": 81,
+          "name": "VPU1",
+          "convert_to_mb": true,
+          "max_value": 4000
+        }
+      ]
+    },
+    {
+      "path": "/sys/devices/aml_ddrc1",
+      "display_name": "DMC 1",
+      "pmu_events": [
+        {
+          "event": "chan_all_read_write_cycles",
+          "axi_id": 0,
+          "name": "Total",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_1_read_write_cycles",
+          "axi_id": 1,
+          "name": "Cortex-lit",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_2_read_write_cycles",
+          "axi_id": 2,
+          "name": "Cortex-big",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_3_read_write_cycles",
+          "axi_id": 3,
+          "name": "3D GPU",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_4_read_write_cycles",
+          "axi_id": 68,
+          "name": "DSP A",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_5_read_write_cycles",
+          "axi_id": 53,
+          "name": "Video_Dec_1",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_6_read_write_cycles",
+          "axi_id": 51,
+          "name": "Video_Dec_2",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_7_read_write_cycles",
+          "axi_id": 80,
+          "name": "VPU0",
+          "convert_to_mb": true,
+          "max_value": 4000
+        },
+        {
+          "event": "chan_8_read_write_cycles",
+          "axi_id": 81,
+          "name": "VPU1",
+          "convert_to_mb": true,
+          "max_value": 4000
+        }
+      ]
+    }
+  ]
+}
+
+// PORT: AXI_ID
+// a53: 1
+// a73: 2
+// mali0: 3
+// mali1: 4
+// cci: 5
+// nna0: 8
+// nna1: 9
+// nna2: 10
+// nna3: 11
+// hdmi_rx: 16
+// usb2: 17
+// usb3: 18
+// pcie: 19
+// spicc0: 24
+// spicc1: 25
+// sdemmca: 26
+// sdemmcb: 27
+// sdemmcc: 28
+// spicc2: 29
+// ethernet: 34
+// afifo: 35
+// audma: 36
+// spicc3: 37
+// spicc4: 38
+// spicc5: 39
+// ge2d: 48
+// gdc: 49
+// dewarp: 50
+// vdec: 51
+// hevc_f: 52
+// hevc_b: 53
+// hcodec: 54
+// wave521: 55
+// demux: 63
+// isp0: 64
+// isp1: 65
+// isp2: 66
+// isp3: 67
+// dspa: 68
+// dspb: 69
+// aocpu: 70
+// jtag: 71
+// audio: 72
+// dma: 73
+// vpu0: 81
+// vpu1: 82
+// vpu2: 83

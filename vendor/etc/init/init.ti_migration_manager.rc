@@ -1,0 +1,10 @@
+service ti_migration_manager /vendor/bin/ti_migration_manager
+    class hal
+    user system
+    group system net_admin
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start ti_migration_manager
+
