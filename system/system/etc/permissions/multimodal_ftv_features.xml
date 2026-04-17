@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2021-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   PROPRIETARY/CONFIDENTIAL
+ -->
+
+<permissions>
+
+    <!-- These are the feature flags relevant to multimodal ftv devices -->
+
+    <!-- feature to distinguish multimodal ftv devices from other amazon devices -->
+    <feature name="com.amazon.feature.multimodal_ftv"/>
+    <!-- feature to enable live tv -->
+    <feature name="android.software.live_tv" />
+    <!-- feature to specify if the device supports adding device admins -->
+    <feature name="amazon.software.device_admin" />
+    <!-- feature to enable dynamic key policy manager -->
+    <feature name="com.amazon.feature.dynamic_key_mapping"/>
+    <feature name="android.hardware.type.television" />
+    <feature name="amazon.hardware.fire_tv" />
+    <feature name="com.amazon.feature.hybrid_adid" />
+
+</permissions>

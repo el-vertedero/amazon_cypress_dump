@@ -1,0 +1,14 @@
+service vendor.halo-spineld /vendor/bin/halo_spineld
+   user system
+   group root system inet net_admin shell log
+   disabled
+
+on property:init.svc.spi_hdlc_mux_adapter=running && property:vendor.zigbee.zb_mux_initialized=true
+   start vendor.halo-spineld
+
+on property:init.svc.spi_hdlc_mux_adapter=stopped
+   stop vendor.halo-spineld
+
+on property:init.svc.spi_hdlc_mux_adapter=restarting
+   stop vendor.halo-spineld
+

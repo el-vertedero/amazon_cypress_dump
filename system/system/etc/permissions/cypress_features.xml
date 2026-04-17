@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2019 - 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<permissions>
+    <!-- By declaring the feature here
+         The api PackageManager.hasSystemFeature(String feature) will
+         return true if passed the feature name below.-->
+    <feature name="com.amazon.ffs.enabled"/>
+    <feature name="com.amazon.device.a2dp_sink.enabled"/>
+    <feature name="com.amazon.led_controller.enabled"/>
+    <feature name="android.software.cant_save_state" />
+    <feature name="com.amazon.feature.security.camera.pip.enabled"/>
+    <feature name="com.amazon.reverse_screen_rotation.disabled"/>
+    <feature name="com.amazon.feature.adaptive_color"/>
+    <feature name="com.amazon.feature.minerva_metrics"/>
+
+    <!-- Feature to indicate that cookie consent is not supported on the device -->
+    <feature name="com.amazon.feature.cookie_consent_unsupported"/>
+    <!-- Feature flags to denote UltraHD support-->
+    <feature name="amazon.hardware.ultra_hd"/>
+    <!-- Feature flag to denote OpticalAudio support-->
+    <feature name="amazon.hardware.optical_audio"/>
+    <!-- Feature flag to denote Headphone Audio support-->
+    <feature name="amazon.hardware.headphone_audio"/>
+    <!-- Feature flag to enable AmazonDisplayAlgorithms Mura Suppression-->
+    <feature name="com.amazon.feature.mura_suppression"/>
+</permissions>

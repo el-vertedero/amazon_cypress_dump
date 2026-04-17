@@ -1,0 +1,8 @@
+on property:ahe_reset_fs=1
+    start ahe_clean_up
+
+service ahe_clean_up /system/bin/ahe_clean_up.sh
+    user root
+    disabled
+    oneshot
+

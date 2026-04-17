@@ -1,0 +1,9 @@
+{
+	"processes": [
+		{
+			"name": "zon.ambienthome",
+			"soft_memory_limit": 1358000,
+			"hard_memory_limit": 2048000
+		}
+	]
+}

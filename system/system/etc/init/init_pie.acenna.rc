@@ -1,0 +1,23 @@
+on post-fs-data
+    rm /data/acenna/acenna_service.log
+    rm /data/acenna/acenna_service_prev.log
+    rm /data/acenna/acenna_serv.socket
+    mkdir /data/acenna 0777
+    mkdir /data/acenna/models 0777
+
+on boot
+    insmod /vendor/lib/modules/acenna_kmod.ko
+    wait /dev/acenna0
+    chown vendor_nna vendor_nna /dev/acenna0
+    wait /dev/acenna1
+    chown vendor_nna vendor_nna /dev/acenna1
+    wait /dev/acenna2
+    chown vendor_nna vendor_nna /dev/acenna2
+    wait /dev/acenna3
+    chown vendor_nna vendor_nna /dev/acenna3
+    start acenna_service
+
+service acenna_service /system/bin/acenna_service -e -l2 -p0 -m0
+    class main
+    user vendor_nna
+    group vendor_nna vendor_ahe vendor_aipc

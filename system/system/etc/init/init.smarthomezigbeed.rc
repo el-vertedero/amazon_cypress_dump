@@ -1,0 +1,17 @@
+# CSM SmartHome Zigbee Daemon init.rc configuration
+
+on post-fs-data
+    mkdir /data/securedStorageLocation/com.amazon.device.smarthome.adapters.zigbee 0777 smarthome smarthome
+    mkdir /data/securedStorageLocation/SmartHome 0777 smarthome smarthome
+
+on property:sys.boot_completed=1
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_ZIGBEE/CapabilityInstanceDatabase.db
+    setprop persist.zigbee.sh_migrate "success"
+    start smarthomezigbeed
+
+# TODO:DEE-353659 remove unused group amz_group from rc file
+service smarthomezigbeed /system/bin/SmartHomeZigbeeAdapterd
+    class main
+    user vendor_smarthome
+    group system vendor_amazon_gid vendor_aipc vendor_zigbee vendor_ace_group vendor_ace_kv_storage dbus inet amz_group
+    disabled

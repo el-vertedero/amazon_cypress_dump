@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+    PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<fosinit xmlns="http://www.amazon.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.amazon.com/fireos/base/core/config/ fosinit.xsd">
+    <vendor-callbacks>
+        <callback base="android.content.res.VendorAdjustDensityCallback"
+            impl="com.amazon.packageresourcemanager.PackageAdjustDensityCallback"
+            classLoader="BOOT" />
+        <callback base="android.view.VendorDisplayCallback"
+            impl="com.amazon.packageresourcemanager.PackageVendorDisplayCallback"
+            classLoader="BOOT" />
+        <callback base="android.view.VendorOrientationEventListenerCallback"
+            impl="com.amazon.packageresourcemanager.PackageVendorOrientationEventListenerCallback"
+            classLoader="BOOT" />
+    </vendor-callbacks>
+</fosinit>

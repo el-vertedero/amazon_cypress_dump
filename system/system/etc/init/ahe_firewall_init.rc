@@ -1,0 +1,8 @@
+on property:alexa.hybrid.firewall_config_ready=1
+    start ahe_firewall_init
+
+service ahe_firewall_init /system/bin/ahe_firewall_init.sh
+    user root
+    disabled
+    oneshot
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2022 - 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+    PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<fosinit xmlns="http://www.amazon.com"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.amazon.com/fireos/base/core/config/fosinit.xsd">
+    <vendor-callbacks>
+        <callback base="com.android.server.wm.VendorDisplayContentCallback"
+                  impl="com.amazon.portraitletterbox.AmazonPortraitDisplayContentCallback"
+                  classLoader="SYSTEMSERVER" />
+       <callback base="com.android.server.policy.VendorPhoneWindowManagerCallback"
+                  impl="com.android.server.policy.AmazonPortraitPhoneWindowManagerCallback"
+                  classLoader="SYSTEMSERVER" />
+       <callback base="com.android.server.am.VendorActivityRecordCallback"
+                  impl="com.android.server.am.AmazonPortraitActivityRecordCallback"
+                  classLoader="SYSTEMSERVER" />
+       <callback base="com.android.server.am.VendorTaskRecordCallback"
+                  impl="com.android.server.am.AmazonPortraitScalingTaskRecordCallback"
+                  classLoader="SYSTEMSERVER" />
+       <callback base="com.android.server.am.VendorActivityManagerServiceCallback"
+                  impl="com.android.server.am.AmazonPortraitActivityManagerCallback"
+                  classLoader="SYSTEMSERVER" />
+       <callback base="com.android.server.wm.VendorWindowStateCallback"
+                  impl="com.android.server.am.AmazonPortraitScalingWindowStateCallBack"
+                  classLoader="SYSTEMSERVER" />
+        <callback base="com.android.server.wm.VendorScalingConfigurationCallback"
+                  impl="com.android.server.wm.AmazonScalingConfigurationCallback"
+                  classLoader="SYSTEMSERVER" />
+        <callback base="android.view.VendorViewRootImplCallback"
+                  impl="android.view.PortraitViewRootImplCallback" />
+        <callback base="android.hardware.display.VendorDisplayManagerGlobalCallback"
+             impl="com.amazon.android.display.AmazonPortraitScalingDisplayManagerGlobalCallback" />
+    </vendor-callbacks>
+</fosinit>

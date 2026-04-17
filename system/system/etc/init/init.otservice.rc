@@ -1,0 +1,12 @@
+service otservice /system/bin/otbr-agent -I ot0 -B wlan0 spinel+hdlc+uart://${mux.spi-hdlc-mux0}
+    class main
+    user system
+    group system dbus inet vpn net_admin net_raw
+    capabilities NET_RAW NET_ADMIN
+    onrestart setprop openthread.init.done n
+    onrestart stop connthreadsvc
+    disabled
+
+on property:wlan.driver.status=ok && property:vendor.zigbee.zb_mux_initialized=true
+   start otservice
+

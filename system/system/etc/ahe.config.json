@@ -1,0 +1,77 @@
+{
+    "AlexaHybrid.CoreEngine.WorkingDir": "/data/alexahybrid/files/CoreEngineWorking",
+    "AlexaHybrid.CoreEngine.pryon1LibraryPath": "/system/lib/libpryon.so",
+    "AlexaHybrid.SDK.ArtifactManager.CAInfoCertPath": "/system/etc/security/cacerts-sha1",
+    "AlexaHybrid.SDK.ArtifactManager.DownloadDirectory": "/data/alexahybrid/files/AmWorking",
+    "AlexaHybrid.SDK.ArtifactManager.IngestionEP": "9092",
+    "AlexaHybrid.SDK.ArtifactManager.ModelDirrectory": "/data/alexahybrid/files/AmModel",
+    "AlexaHybrid.SDK.EnabledFeatures.BuiltInSnoozeSkill": "true",
+    "AlexaHybrid.SDK.ExecutionController.Address": "0.0.0.0",
+    "AlexaHybrid.SDK.ExecutionController.Port": "7802",
+    "AlexaHybrid.SDK.ExecutionController.SocketDirectory": "/data/alexahybrid/ec-sockets",
+    "AlexaHybrid.SDK.ExecutionController.SocketPermissions": "ALL",
+    "AlexaHybrid.SDK.ExecutionController.StartLSF": "false",
+    "AlexaHybrid.SDK.HybridPlatformInterface.Backend": "HR",
+    "AlexaHybrid.SDK.LocalRequestOrchestrator.BriefMode": "false",
+    "AlexaHybrid.SDK.LocalRequestOrchestrator.SocketDirectory": "/data/alexahybrid/lro-sockets",
+    "AlexaHybrid.SDK.LocalRequestOrchestrator.SocketPermissions": "ALL",
+    "AlexaHybrid.SDK.LocalRequestOrchestrator.CloudInteractionSamplingRate": "0.01",
+    "AlexaHybrid.SDK.MetricsLoggerType": "ANDROID_NATIVE_METRICS_BUFFER",
+    "AlexaHybrid.SDK.MetricsRecordType": "LOG",
+    "AlexaHybrid.SDK.NativeMetricsBufferLogId": "8",
+    "AlexaHybrid.SDK.PlatformServices.SocketDirectory": "/data/alexahybrid/ps-sockets",
+    "AlexaHybrid.SDK.PlatformServices.SocketPermissions": "ALL",
+    "AlexaHybrid.SDK.SettingsManager.Enabled": "true",
+    "AlexaHybrid.SDK.SettingsManager.PersistDirPath": "/data/alexahybrid/files/sm",
+    "ArtifactManager.Lmb.EnableDeregisterDelay": "true",
+    "ArtifactManager.Lmb.DeregisterDelaySecs": "30",
+    "ArtifactManager.ModelClass": "odie-litespeed",
+    "ArtifactManager.DavsPollServer.TcpPort": "9091",
+    "ArtifactManager.DavsPollServer.Enable": "true",
+    "ArtifactManager.InteractionLog.UseVFS": "1",
+    "ArtifactManager.ModelBuilding.EndpointType": "TCP",
+    "ArtifactManager.Download.DownloaderPolicy": "MIN_STORAGE_FOOTPRINT",
+    "VersionFilePath": "/system/etc/ahe.version",
+    "shared": {
+        "writableDir": "/data/alexahybrid/files/working-directory"
+     },
+    "skillCollections": [
+         {
+            "actionInterfaces": ["SmartHome.executeAction"],
+            "details": {
+                "socketAddress": "0.0.0.0:7086"
+            },
+            "skillCollectionId": "remoteSkills",
+            "type": "tcp"
+        },
+        {
+            "details": {
+                "skillLibraryPath": "/system/lib/alexahybrid/libahe_alerts_skill.so"
+            },
+            "skillCollectionId": "com.amazon.alexahybrid.AlertsSkill",
+            "type": "local"
+        },
+        {
+            "details": {
+                "skillLibraryPath": "/system/lib/alexahybrid/libahe_stop_fallback_skill.so"
+            },
+            "skillCollectionId": "com.amazon.alexahybrid.StopFallbackSkill",
+            "type": "local"
+        },
+        {
+            "details": {
+                "skillLibraryPath": "/system/lib/alexahybrid/libahe_volume_control_skill.so"
+            },
+            "skillCollectionId": "com.amazon.alexahybrid.VolumeControlSkill",
+            "type": "local"
+        },
+        {
+            "actionInterfaces": ["System.fetchCurrentTime", "System.fetchCurrentDay"],
+            "details": {
+                "skillLibraryPath": "/system/lib/alexahybrid/libahe_chrono_skill.so"
+            },
+            "skillCollectionId": "com.amazon.alexahybrid.ChronoSkill",
+            "type": "local"
+        }
+    ]
+}
