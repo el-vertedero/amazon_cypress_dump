@@ -1,0 +1,11 @@
+
+ro.product.build.date=Thu May 1 04:53:45 UTC 2025
+ro.product.build.date.utc=1746075225
+ro.product.build.fingerprint=Amazon/cypress/cypress:9/PS7466.5256N/0032918243328:user/dev-keys
+#
+# ADDITIONAL PRODUCT PROPERTIES
+#
+persist.bluetooth.disableabsvol=false
+persist.sys.recovery.batt_level=0
+persist.bluetooth.enablenewavrcp=false
+ro.product.config.type=AQ24620N8QD5Q
